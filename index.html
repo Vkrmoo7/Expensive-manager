@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager</title>
+    <link rel="stylesheet" href="./source/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Manager</h1>
+        </header>
+
+        <!-- Form to Add Expenses and Income -->
+        <section class="add-transaction">
+            <h2>FILL DETAILS</h2>
+            <form id="transaction-form"></form>
+                <div class="form-group">
+                    <label for="type">Select Type</label>
+            <select id="salary">
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Annum</option>
+            </select>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="#">Select</option>
+                        <option value="Expense">Expenses</option>
+                        <option value="Salary">Salary</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" placeholder="₹1,000">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" placeholder="Food, Transport, Entertainment, Others">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                
+                <button type="submit">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Transaction List as Table -->
+        <section class="transactions">
+            <h2>Transactions</h2>
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button id="download-btn">Download</button>
+        </section>
+
+        <!-- Summary Selector -->
+        <section class="summary-options">
+            <h2>View Summary</h2>
+            <div id="summary-output">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Total Income</th>
+                            <th>Total Expense</th>
+                            <th>Remaining Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="total-income">₹0</td>
+                            <td id="total-expense">₹0</td>
+                            <td id="remaining-savings">₹0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Print Button -->
+        <button id="print-btn">Print 🖨</button>
+
+    </div>
+
+    <script src="./source/app.js"></script>
+</body>
+</html>
