@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <tr>
                             <th style="border: 1px solid #000; padding: 8px;">Amount</th>
                             <th style="border: 1px solid #000; padding: 8px;">Category</th>
-                            <th style="border: 1px solid #000; padding: 8px;">Salary Type</th>
+                            <th style="border: 1px solid #000; padding: 8px;">Type</th>
                             <th style="border: 1px solid #000; padding: 8px;">Date</th>
                             <th style="border: 1px solid #000; padding: 8px;">Description</th>
                         </tr>
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Download transactions as Excel (CSV format)
     const downloadAsExcel = () => {
-        let csvContent = "data:text/csv;charset=utf-8,Amount,Category,Salary Type,Date,Description\n";
+        let csvContent = "data:text/csv;charset=utf-8,Amount,Category,Type,Date,Description\n";
         transactions.forEach(transaction => {
             const row = [transaction.amount.toFixed(2), transaction.category, transaction.salaryType, transaction.date, transaction.description].join(",");
             csvContent += row + "\n";
