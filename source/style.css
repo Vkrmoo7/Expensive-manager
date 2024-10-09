@@ -1,10 +1,9 @@
-/* Global Styles */
+/* Global Styles */ 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    
 }
 
 .container {
@@ -41,7 +40,7 @@ h2 {
 .add-transaction select,
 .add-transaction input,
 .add-transaction button {
-    width: 100%;
+    width: calc(100% - 22px); /* Adjusted width for better spacing */
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;

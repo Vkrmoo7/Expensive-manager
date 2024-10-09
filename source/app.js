@@ -82,15 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Print summary and transactions
     const printSummary = () => {
         const printContent = `
-            <h2>Summary</h2>
-            ${summaryOutput.innerHTML}
-            <h2>Transactions</h2>
-            ${document.getElementById('transaction-table').outerHTML}
+            <div style="font-family: Arial, sans-serif; padding: 20px;">
+                <h2 style="text-align: center;">Summary</h2>
+                <p>Total Income: ₹${document.getElementById('total-income').textContent.replace('₹', '')}</p>
+                <p>Total Expense: ₹${document.getElementById('total-expense').textContent.replace('₹', '')}</p>
+                <p>Remaining Savings: ₹${document.getElementById('remaining-savings').textContent.replace('₹', '')}</p>
+                <h2 style="text-align: center;">Transactions</h2>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid #000; padding: 8px;">Amount</th>
+                            <th style="border: 1px solid #000; padding: 8px;">Category</th>
+                            <th style="border: 1px solid #000; padding: 8px;">Salary Type</th>
+                            <th style="border: 1px solid #000; padding: 8px;">Date</th>
+                            <th style="border: 1px solid #000; padding: 8px;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${transactions.map(transaction => `
+                            <tr>
+                                <td style="border: 1px solid #000; padding: 8px;">₹${transaction.amount.toFixed(2)}</td>
+                                <td style="border: 1px solid #000; padding: 8px;">${transaction.category}</td>
+                                <td style="border: 1px solid #000; padding: 8px;">${transaction.salaryType}</td>
+                                <td style="border: 1px solid #000; padding: 8px;">${transaction.date}</td>
+                                <td style="border: 1px solid #000; padding: 8px;">${transaction.description || 'No description'}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
         `;
 
         const originalContent = document.body.innerHTML;
-        document.body.innerHTML = `<div>${printContent}</div>`;
-        window.print();
+        document.body.innerHTML = printContent; // Set print content
+        window.print(); // Trigger print
         document.body.innerHTML = originalContent; // Restore original content
         location.reload(); // Reload to restore event listeners
     };
